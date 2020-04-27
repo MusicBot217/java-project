@@ -10,7 +10,7 @@ public class Fingerprint {
 		//verify() method checks the database for a fingerprint.
 		//verify() returns true when a fingerprint is found and false when one is not found.
 		try {
-			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/test", "root", "JavaGaurds11*");
+			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/javagaurdians", "root", "JavaGaurds11*");
 			Statement A = conn.createStatement();
 			Scanner console = new Scanner(System.in);
 			System.out.println("Scan the users fingerprint: ");
@@ -38,7 +38,7 @@ public class Fingerprint {
 		while (verify() == false) {
 			// while verify() is false, enrolls a new user into the database
 			try {
-				Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/test", "root", "JavaGaurds11*");
+				Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/javagaurdians", "root", "JavaGaurds11*");
 				System.out.println("Enter the new user's name: ");
 				String name = console.next();
 				System.out.println("Enter the new user's ID number: ");
@@ -66,7 +66,7 @@ public class Fingerprint {
 			//while verify() is true, grants user access to database
 			System.out.println("Access granted");
 			try {
-				Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/test", "root", "JavaGaurds11*");
+				Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/javagaurdians", "root", "JavaGaurds11*");
 				String sql = "SELECT * FROM users";
 				Statement C = conn.createStatement();
 				ResultSet rs = C.executeQuery(sql);
